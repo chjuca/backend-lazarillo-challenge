@@ -14,11 +14,11 @@ async function createTeacher(req, res) {
         db.collection("teachers").add({
             name,
             subjects,
-            dateBirth,
+            dateBirth: new Date(dateBirth),
             direction,
             typeContract
         }) 
-        return res.status(204).json({
+        return res.status(201).json({
             ok: true,
             message: "Teacher created successfully"
         })      
